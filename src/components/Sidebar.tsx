@@ -6,16 +6,16 @@ import styled from "styled-components";
 const Sidebar: React.FC = () => {
   return (
     <SidebarContainer>
-      <h2>Menu</h2>
+      <h2>오늘의 말씀</h2>
       <Menu>
         <MenuItem>
-          <Link to="/">Home</Link>
+          <Link to="/">묵상</Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/about">About</Link>
+          <Link to="/word">단어</Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/contact">Contact</Link>
+          <Link to="/notification">알림</Link>
         </MenuItem>
       </Menu>
     </SidebarContainer>

@@ -1,37 +1,59 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
-import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Login from "./pages/Login";
+import DailyReading from "./pages/DailyReading";
+import Word from "./pages/Word";
+import Notification from "./pages/Notification";
+import GlobalStyle from "./styles/GlobalStyle";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Container>
-        <Sidebar />
-        <Content>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Content>
-      </Container>
-    </Router>
+    <>
+      <GlobalStyle />
+      <Router>
+        <Routes>
+          {/* Auth Layout */}
+          <Route
+            path="/login"
+            element={
+              <AuthLayout>
+                <Login />
+              </AuthLayout>
+            }
+          />
+
+          {/* Main Layout */}
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <DailyReading />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/word"
+            element={
+              <MainLayout>
+                <Word />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/notification"
+            element={
+              <MainLayout>
+                <Notification />
+              </MainLayout>
+            }
+          />
+        </Routes>
+      </Router>
+    </>
   );
 };
-
-// Styled Components 정의
-const Container = styled.div`
-  display: flex;
-`;
-
-const Content = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
 
 export default App;
