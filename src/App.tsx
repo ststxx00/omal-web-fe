@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Routes>
           {/* Auth Layout */}
           <Route
-            path="/login"
+            path="/"
             element={
               <AuthLayout>
                 <Login />
@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
           {/* Main Layout */}
           <Route
-            path="/"
+            path="/daily-reading"
             element={
               <MainLayout>
                 <DailyReading />

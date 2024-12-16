@@ -12,4 +12,17 @@ const axiosInstance = axios.create({
   timeout: 10000, // 요청 타임아웃 시간 설정
 });
 
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export default axiosInstance;

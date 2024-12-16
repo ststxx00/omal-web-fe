@@ -9,7 +9,7 @@ const Sidebar: React.FC = () => {
       <h2>오늘의 말씀</h2>
       <Menu>
         <MenuItem>
-          <Link to="/">묵상</Link>
+          <Link to="/daily-reading">묵상</Link>
         </MenuItem>
         <MenuItem>
           <Link to="/word">단어</Link>

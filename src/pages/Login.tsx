@@ -1,21 +1,26 @@
 // src/pages/Login.tsx
 import React, { useState } from "react";
 import styled from "styled-components";
-import { loginUser } from "../api/userApi";
+import { loginUser } from "../api/userApi"
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const [id, setId] = useState('');
+  const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   
+  const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
-      const data = await loginUser(id, password);
+      const data = await loginUser(userId, password);
       console.log('로그인 성공:', data);
-      // 로그인 성공 후 처리 (예: 토큰 저장, 리디렉션 등)
+      localStorage.setItem('access_token', data.access_token);
+      navigate('/daily-reading'); // Redirect to DailyReading page
     } catch (err) {
       setError('로그인 실패. 다시 시도해 주세요.');
       console.error(err);
+      alert('로그인 실패. 다시 시도해 주세요.');
     }
   };
 
@@ -24,7 +29,7 @@ const Login: React.FC = () => {
       <Title>Welcome 😀</Title>
       <Title>오늘의 말씀 관리자 페이지입니다.</Title>
       <Form>
-        <Input placeholder="ID" onChange={(e) => setId(e.target.value)} />
+        <Input placeholder="ID" onChange={(e) => setUserId(e.target.value)} />
         <Input placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         <Button onClick={handleLogin}>Login</Button>
       </Form>

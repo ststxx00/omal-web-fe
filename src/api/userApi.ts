@@ -2,9 +2,9 @@
 import axiosInstance from './axiosInstance';
 
 // 사용자 로그인 요청
-export const loginUser = async (email: string, password: string) => {
+export const loginUser = async (userId: string, password: string) => {
   try {
-    const response = await axiosInstance.post('/login', { email, password });
+    const response = await axiosInstance.post('/auth/login', { userId, password });
     return response.data; // 응답 데이터 반환
   } catch (error) {
     throw error; // 오류 처리
