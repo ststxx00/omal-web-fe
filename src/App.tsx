@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import MainLayout from "./components/MainLayout"
-import A from "./pages/A"
-import B from "./pages/B"
-import Login from "./pages/Login"
-import { Global, css } from '@emotion/react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainLayout from "./components/MainLayout";
+import Login from "./pages/Login";
+import { Global, css } from '@emotion/react';
+import ReflectionList from "./pages/ReflectionListPage";
+import WordListPage from "./pages/WordListPage";
+import NotificationPage from "./pages/NotificationPage";
 
 function App() {
   return (
@@ -17,32 +18,14 @@ function App() {
       />
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Login />
-            }
-          />
-          <Route
-            path="/a"
-            element={
-              <MainLayout>
-                <A />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/b"
-            element={
-              <MainLayout>
-                <B />
-              </MainLayout>
-            }
-          />
+          <Route path="/" element={<Login />} />
+          <Route path="/reflection-list" element={<MainLayout><ReflectionList /></MainLayout>}></Route>
+          <Route path="/word-list" element={<MainLayout><WordListPage /></MainLayout>}></Route>
+          <Route path="/notification" element={<MainLayout><NotificationPage /></MainLayout>}></Route>
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
