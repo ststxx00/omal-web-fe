@@ -5,7 +5,7 @@ import { Avatar } from "@/components/ui/avatar"
 
 const SideMenubar: React.FC = () => {
   return (
-    <Box w="200px" bg="white" p={4} h="100vh" display="flex" flexDirection="column" justifyContent="space-between">
+    <Box w="200px" bg="gray.50" p={4} h="100vh" display="flex" flexDirection="column" justifyContent="space-between">
       <Stack gap={10} pt={10}>
       <Box textAlign="center">
         <Text fontSize="3xl" fontWeight="bold">오늘의 말씀</Text>

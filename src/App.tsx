@@ -5,6 +5,7 @@ import { Global, css } from '@emotion/react';
 import ReflectionList from "./pages/ReflectionListPage";
 import WordListPage from "./pages/WordListPage";
 import NotificationPage from "./pages/NotificationPage";
+import ReflectionDetailPage from "./pages/ReflectionDetailPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/reflection-list" element={<MainLayout><ReflectionList /></MainLayout>}></Route>
+          <Route path="/reflection-detail" element={<MainLayout><ReflectionDetailPage /></MainLayout>}></Route>
           <Route path="/word-list" element={<MainLayout><WordListPage /></MainLayout>}></Route>
           <Route path="/notification" element={<MainLayout><NotificationPage /></MainLayout>}></Route>
         </Routes>
